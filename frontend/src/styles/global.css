@@ -35,3 +35,60 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .error-text { color: #b42318; }
 .status-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
 .legend-item { background: #eef2f7; border-radius: 999px; padding: 2px 10px; }
+.muted-text { color: var(--muted); }
+
+/* 提示条：失败、成功、空数据、加载中各说各话，不留一片白 */
+.banner { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 10px 0; font-size: 13px; background: #fff; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.banner.inline { display: block; }
+.banner.error { background: #fef3f2; border-color: #fda29b; color: #b42318; }
+.banner.success { background: #ecfdf3; border-color: #6ce9a6; color: #027a48; }
+.banner.warn { background: #fffaeb; border-color: #fec84b; color: #b54708; }
+.banner.info { background: #eff8ff; border-color: #84caff; color: #175cd3; }
+
+/* 防涝预警：级别标签与状态徽标 */
+.level-tag { display: inline-block; border-radius: 4px; padding: 1px 8px; font-size: 12px; white-space: nowrap; }
+.level-red { background: #fee4e2; color: #b42318; }
+.level-orange { background: #fffaeb; color: #b54708; }
+.level-yellow { background: #fef9c3; color: #854d0e; }
+.level-blue { background: #eff8ff; color: #175cd3; }
+.level-none { background: #f2f4f7; color: var(--muted); }
+.status-badge { display: inline-block; background: #eef2f7; border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+
+/* 待办清单 */
+.todo-panel, .snapshot-panel { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+.panel-title { margin: 0 0 10px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+.panel-tag { font-size: 12px; font-weight: 400; color: var(--muted); background: #f2f4f7; border-radius: 999px; padding: 1px 10px; }
+.panel-empty { margin: 0; color: var(--muted); font-size: 13px; }
+.todo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.todo-item { display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; background: #fbfcfe; }
+.todo-main { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; flex-wrap: wrap; }
+.todo-code { font-weight: 600; font-size: 13px; }
+.todo-task { color: var(--brand); font-size: 13px; }
+.todo-desc { color: var(--muted); font-size: 12px; }
+.todo-meta { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+/* 拟稿表单 */
+.form-panel { background: #fff; border: 1px solid #84caff; border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+.form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 14px; }
+.form-item { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+.form-item i { color: #b42318; font-style: normal; }
+.form-item-wide { grid-column: 1 / -1; }
+.form-item input, .form-item select, .form-item textarea { font-size: 13px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; color: #1f2937; }
+.form-actions { display: flex; gap: 8px; margin-top: 10px; }
+.area-input { display: flex; gap: 8px; }
+.area-input input { flex: 1; font-size: 13px; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; }
+.area-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.area-chip { display: inline-flex; align-items: center; gap: 6px; background: #eef2f7; border-radius: 999px; padding: 2px 10px; font-size: 12px; color: #1f2937; }
+.area-chip-static { background: #ecfdf3; color: #027a48; }
+.chip-remove { border: none; background: none; cursor: pointer; color: var(--muted); font-size: 14px; line-height: 1; padding: 0; }
+.field-hint { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+
+/* 详情页 */
+.title-code { color: var(--muted); font-size: 15px; font-weight: 400; }
+.detail-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; }
+.detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 18px; margin: 0; }
+.detail-cell { margin: 0; }
+.detail-cell-wide { grid-column: 1 / -1; }
+.detail-cell dt { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+.detail-cell dd { margin: 0; font-size: 13px; }
+.detail-actions { display: flex; gap: 8px; }

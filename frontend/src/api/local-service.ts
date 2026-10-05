@@ -43,6 +43,17 @@ export function runAction(key: string, id: number, action: string): ActionResult
   if (current === target) {
     return { ok: false, message: `${meta.entity}已经是「${target}」，不用重复操作` }
   }
+  // 防涝预警只能从待拟稿逐级走到已解除，不允许跳级；其余模块沿用各自的动作目标。
+  if (key === 'floodwarn') {
+    const currentIndex = meta.statuses.indexOf(current)
+    const targetIndex = meta.statuses.indexOf(target)
+    if (currentIndex < 0 || targetIndex !== currentIndex + 1) {
+      return {
+        ok: false,
+        message: `预警单当前为「${current}」，不能直接变成「${target}」；状态只能按「${meta.statuses.join('→')}」逐级流转，不允许跳级。`,
+      }
+    }
+  }
   const lastStatus = meta.statuses[meta.statuses.length - 1]
   const updated: EntryRow = {
     ...rows[index],
@@ -95,6 +106,8 @@ export function loadOverview(): OverviewResult {
       abnormal: entries.filter((row) => row.abnormal).length,
     }
   })
+  // 待办多的排前面；预警解除使 pending 归零，概览顺序跟着重排。
+  modules.sort((a, b) => b.pending - a.pending || b.created - a.created || a.name.localeCompare(b.name))
   const cards = [
     { label: '业务模块', value: modules.length },
     { label: '登记总量', value: modules.reduce((sum, item) => sum + item.created, 0) },
