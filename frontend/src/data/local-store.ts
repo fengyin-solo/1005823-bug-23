@@ -54,6 +54,11 @@ export function resetRows(key: string): EntryRow[] {
   return rows
 }
 
+// 仅供自动化测试使用：清掉内存缓存，让下一次读取重新从（测试替身的）localStorage 装载。
+export function __resetCacheForTest(): void {
+  cache = null
+}
+
 export function storageKey(): string {
   return STORAGE_KEY
 }

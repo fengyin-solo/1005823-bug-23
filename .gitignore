@@ -85,3 +85,6 @@ desktop.ini
 *.db
 *.pid
 *.seed
+
+# ===== 本地单测临时产物 =====
+.tmp-floodwarn-test/
